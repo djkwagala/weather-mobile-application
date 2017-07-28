@@ -44,7 +44,15 @@ cordova plugin add \<plugin-name\>
 <p>cordova-sqlite-storage 2.0.4 "Cordova sqlite storage plugin"</p>
 <p>ionic-plugin-keyboard 2.2.1 "Keyboard"</p>
 
+## success test
+You should be able to see these screens
+<table>
+  <tr><td>![ScreenShot](/mobile application screen shots/Screenshot_20170710-163524.png)</td></tr>
+  
+</table>
 
 # installation
 tested on android 4.1+ and above
+
+
 
