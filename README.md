@@ -46,10 +46,11 @@ cordova plugin add \<plugin-name\>
 
 ## success test
 You should be able to see these screens
-<table>
-  <tr><td>![ScreenShot](/mobile application screen shots/Screenshot_20170710-163524.png)</td></tr>
-  
-</table>
+<p align="center">
+  <img src="/mobile application screen shots/Screenshot_20170710-163524.png" width="350"/>
+  <img src="/mobile application screen shots/Screenshot_20170710-163527.png" width="350"/>
+</p>
+
 
 # installation
 tested on android 4.1+ and above
