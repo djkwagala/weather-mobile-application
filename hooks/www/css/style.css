@@ -1,0 +1,108 @@
+.input-span{
+  margin-top: -7px;
+}
+.popup-head{
+  background-color: #387ef5;
+
+}
+.titlerow{
+padding-top:10px;
+margin-bottom:5px;
+}
+h3{
+font-size:20px;
+color: white;
+
+}
+h4{
+font-size:16px;
+color: white;
+
+}
+.text-afterimages{
+border-top: solid 1px black;
+}
+
+.text-after-style{
+padding-top: 10px;
+margin-bottom:10px;
+}
+.images-below-login{
+height:50px;
+}
+.text-forgot-password{
+padding-top:20px;
+}
+.card-color{
+background-color:#4A87EE;
+}
+.logout-style{
+ display:block;
+margin:0 auto;
+
+height:50px;
+width:50px;
+padding:10px;
+color: white;
+background: red;
+border-radius:50%;
+font-size:25px;
+}
+.label-span{
+padding-right:10px;
+}
+.row-size{
+height:10px;
+}
+.button-style{
+width:60%;
+margin-top:10px;
+}
+.button-padding{
+padding-left: 10px;
+padding-right: 10px;
+}
+.text-style{
+margin-right:10px;
+}
+.item-color{
+color:red;
+
+}
+.login-top-style{
+background: #222222;
+
+}
+.login-style-top2{
+background: #56A5DB;
+margin-top: 10px;
+}
+.login-style-top3{
+background: #56A5DB;
+color: white;
+}
+.login-style-top4{
+background: #EAEAEC;
+
+}
+.label-style{
+font-size:14px;
+font-weight:bold;
+}
+
+.row-padding{
+margin-top:50px;
+}
+
+.pendingnumber{
+  color:red;
+  text-align:right;
+  float:right;
+  font-weight: bold;
+}
+
+.center_cloud_title{
+  color: green;
+  text-align: center;
+  
+}

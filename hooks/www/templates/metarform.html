@@ -1,0 +1,366 @@
+<ion-view title="meta form" ng-init="hideotherMetarParts()">
+
+<ion-content>
+
+<div ng-show="meatarformPart1">
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">select date</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="date"  ng-model="meta.date" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">Station Name</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="enter station name" ng-model="meta.sname" disabled>
+				</label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">station Number</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="enter station number" ng-model="meta.snumber" disabled>
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">Time</span>
+					</label>
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper item-select">
+									 <select ng-model="meta.time" class="input-span" >
+														<option ng-repeat="x in timeopitons_meta" value="{{x.t}}">{{x.t}}</option>
+										</select>
+						</label>
+
+				   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">Metar/speci</span>
+					</label>
+				<div class="item item-input-inset">
+							<label class = "item item-input-wrapper item-select row-size">
+							   <select ng-model="meta.speci" class="input-span">
+							      <option>METAR</option>
+							      <option >SPECI</option>
+							   </select>
+							</label>
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="MetarSpeci">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in the meta speci please</label>
+					</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">CCCC</span>
+					</label>
+				<div class="item item-input-inset">
+						 <label class="item item-input-wrapper row-size">
+						 <input type="text" placeholder="cccc" ng-model="meta.cccc" >
+						 </label>
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="Metarccc">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in the ccc please</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">YYGGgg</span>
+					</label>
+				<div class="item item-input-inset">
+					  <label class="item item-input-wrapper row-size">
+					 	<input type="number" placeholder="yygggg reading" ng-model="meta.yygggg" >
+					  </label>
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="Metaryyyggg">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in the yyygg please</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">Dddff/fm/fm</span>
+					</label>
+				<div class="item item-input-inset">
+					  <label class="item item-input-wrapper row-size">
+					 <input type="number" placeholder="Dddff/fm/fm reading" ng-model="meta.dddff">
+					  </label>
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="MetarDdff">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in the metarDdff please</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">WWW or CAVOK</span>
+					</label>
+					<label class="item item-input item-stacked-label">
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="www or cavok" ng-model="meta.wwwcavok" >
+				  </label>
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="Metarwww">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in the www or cavok please</label>
+					</div>
+			</div>
+			<div class="row">
+
+				<div class="col text-center">
+				<button class="button button-calm button-style" ng-click="customshowHideOfMetaform('Metarform2')">Next</button>
+				</div>
+			</div>
+</div>
+
+<div ng-show="metarform2">
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">W1W1</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="number" placeholder="w1w1 reading" ng-model="meta.w1w1" >
+				  </label>
+
+			   </div>
+				</div>
+		</div>
+		<div class="row text-center" ng-show="Metarw1w1">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the w1w1 please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">N1CCh1NnCChhhNhCChhh</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+
+				 <input type="number" placeholder="N1CCh1NnCChhhNhCChhh reading" ng-model="meta.N1ch" >
+				  </label>
+				</div>
+			   </div>
+		</div>
+		<div class="row text-center" ng-show="Metarwn1ch">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the N1CCh1NnCChhhNhCChhh please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">Air temperature</span>
+					</label>
+				<div class="item item-input-inset">
+					<label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="Air temperature reading" ng-model="meta.airTemp">
+				  </label>
+
+			   </div>
+				</div>
+		</div>
+		<div class="row text-center" ng-show="MetarairTemp">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the Air temperature please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+							<span class="label-span">Dew Temperature</span>
+					</label>
+				<div class="item item-input-inset">
+					<label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="Dew temperature reading" ng-model="meta.dewTemp">
+					</label>
+
+				 </div>
+				</div>
+		</div>
+
+		<div class="row text-center" ng-show="MetarDewTemp">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the Dew temperature please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+							<span class="label-span">wet bulb</span>
+					</label>
+				<div class="item item-input-inset">
+					<label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="Wet Bulb reading" ng-model="meta.wetBulb">
+					</label>
+
+				 </div>
+				</div>
+		</div>
+			<div class="row text-center" ng-show="MetarwetBulb">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the wet bulb please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">TT/TdTd</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="TT/TdTd reading" ng-model="meta.TTTd">
+				  </label>
+			   </div>
+				</div>
+		</div>
+		<div class="row text-center" ng-show="MetarTT">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the TT/TdTd please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						 <span class="label-span">QNH (hpa)</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="QNH hpa reading" ng-model="meta.qnhhpa" >
+				  </label>
+
+			   </div>
+				</div>
+		</div>
+		<div class="row text-center" ng-show="Metarqnh">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the QNH (hpa) please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						 <span class="label-span">QNH (in)</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="QNH in reading" ng-model="meta.qnhin" >
+				 </label>
+			   </div>
+				</div>
+		</div>
+		<div class="row text-center" ng-show="Metarqnhin">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the QNH (in) please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					<span class="label-span">QFE (hpa)</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="QFE hpa reading" ng-model="meta.qfehpa" >
+				  </label>
+
+			   </div>
+				</div>
+		</div>
+			<div class="row text-center" ng-show="Metarqfehpa">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the QFE (hpa) please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">QFE (in)</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="QFE reading" ng-model="meta.qfein">
+				  </label>
+			   </div>
+				</div>
+		</div>
+		<div class="row text-center" ng-show="Metarqfein">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the QFE (in) please</label>
+				</div>
+		</div>
+		<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">RE (W1W1)</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="RE w1w1 reading" ng-model="meta.rew1w1">
+				  </label>
+
+			   </div>
+				</div>
+		</div>
+			<div class="row text-center" ng-show="Metarew1w1">
+				<div class="col " >
+					<label class="item item-input-wrapper row-size item-color">Fill in the RE (W1W1) please</label>
+				</div>
+		</div>
+		<div class="row button-padding">
+				<div class="col text-left">
+				<button class="button button-assertive button-style" ng-click="customshowHideOfMetaform('Metarform1')">back</button>
+				</div>
+				<div class="col text-right">
+				<button class="button button-calm button-style" ng-click="submitMetardata()">submit</button>
+				</div>
+</div>
+</div>
+</ion-content>
+
+</ion-view>

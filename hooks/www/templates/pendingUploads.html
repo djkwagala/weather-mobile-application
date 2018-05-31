@@ -1,0 +1,13 @@
+<ion-view title="pending uploads" >
+  <ion-content>
+    <ion-list ng-repeat="n in arrayOBV  track by $index">
+      <ion-item ng-click="sendObserveDataOnline(n)" >observation form <span class="pendingnumber">@{{n}}</span></ion-item>
+    </ion-list>
+    <ion-list ng-repeat="n in arrayMore  track by $index">
+      <ion-item  ng-click="sendMoreDataOnline(n)">More Form<span class="pendingnumber">@{{n}}</span></ion-item>
+    </ion-list>
+    <ion-list ng-repeat="n in arrayMeta  track by $index">
+      <ion-item ng-click="sendDataOnline(n)">Meta form<span class="pendingnumber">@{{n}}</span></ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

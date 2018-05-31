@@ -1,0 +1,1238 @@
+<ion-view   title="Observation form" ng-init="hideotherObservationParts(); initDB()">
+
+<ion-content>
+<div ng-show="observationformPart1">
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">select date</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="date" ng-model="observdata.dateSelected" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">station name</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter station name" ng-model="observdata.StationName" disabled>
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset"   >
+				  <span class="label-span">station number</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter station number" ng-model="observdata.StationNumber" disabled >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="item item-input-inset">
+						<span class="label-span">Metar Time </span>
+
+						<label class="item item-input-wrapper row-size">
+
+					  <input type="time" ng-blur="validateTimeDependants()" ng-model="observdata.time" class="input-span"  >
+					 	</label>
+				   </div>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="item item-input-inset">
+						<span class="label-span">Speci Time </span>
+
+						<label class="item item-input-wrapper row-size">
+
+					  <input type="time"  ng-model="observdata.time2" class="input-span"  >
+					 	</label>
+				   </div>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Total amount of clouds</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+
+				 <input type="number" placeholder="clouds amount"  ng-model="observdata.amountClounds" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+
+
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Total low clound</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="total low cloud"  ng-model="observdata.totalLowClounds" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+
+
+
+
+			<div class="row">
+
+				<div class="col text-center">
+				<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform2')">Next</button>
+				</div>
+			</div>
+	</div>
+	<div  ng-show="observationformpart2">
+			<div class="row">
+				<div class="col">
+					<label class="item item-input-wrapper row-size center_cloud_title">
+						<span class="label-span ">CLOUD 1</span>
+					</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">Type of low cloud</span>
+					</label>
+
+				<div class="item item-input-inset">
+					<label class = "item item-input-wrapper item-select">
+				<select ng-model="observdata.typeLowCloud"  class="input-span">
+										 <option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</select>
+			   </div>
+
+				 </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					<span class="label-span">OKTAS low cloud</span>
+					</label>
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper item-select">
+					<select class="input-span" ng-model="observdata.oktasLowClouds" >
+						 					<option ng-repeat="x in cOptions0" value="{{x.t}}">{{x.t}}</option>
+						 </select>
+					 </select>
+				   </div>
+
+
+			   </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Height of low cloud</span>
+				</label>
+				<div class="item item-input-inset">
+   		<label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="enter low cloud height" ng-model="observdata.lowCloudHeight" >
+			 </label>
+				</div>
+			   </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">CLCODE low clouds</span>
+				</label>
+					<div class="item item-input-inset">
+
+						<label class = "item item-input-wrapper item-select">
+							 <select class="input-span" ng-model="observdata.CLCode"  >
+ 					 					<option  value="Sc">Sc</option>
+ 					 					<option  value="St">St</option>
+ 					 					<option  value="Cu">Cu</option>
+ 										<option  value="Cb">Cb</option>
+ 					 </select>
+
+						</label>
+
+				   </div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">Type medium cloud</span>
+					</label>
+
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper item-select">
+					 <select class="input-span" placeholder="enter medium cloud type"  ng-model="observdata.mediumCloudType"   >
+										<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+					</select>
+				</label>
+				   </div>
+
+
+
+			   </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">OKTAS medium cloud</span>
+					</label>
+					<div class="item item-input-inset">
+ 					<label class = "item item-input-wrapper item-select">
+					 <select class="input-span" ng-model="observdata.OltasMediumCloud"  >
+										<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+					</select>
+				</label>
+
+				   </div>
+
+
+			   </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Height medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+			 <input type="number" placeholder="Enter medium cloud height" ng-model="observdata.mediumCloudHeight" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">CLCode medium cloud</span>
+					</label>
+					<div class="item item-input-inset">
+
+
+					<label class = "item item-input-wrapper item-select">
+							<select class="input-span" ng-model="meta.CLCODEOfMediumClouds" >
+											 <option  value="As"> As</option>
+											 <option  value="Ac">Ac </option>
+											 <option  value="Ns"> Ns</option>
+							 </select>
+
+
+
+						</label>
+
+				   </div>
+
+			   </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">Type high cloud</span>
+					</label>
+
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper item-select">
+					 <select class="input-span"  ng-model="observdata.typeHighCloud"   >
+										<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+					</select>
+				</label>
+				   </div>
+
+
+
+			   </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="label-span">OKTAS high cloud</span>
+					</label>
+					<div class="item item-input-inset">
+ 					<label class = "item item-input-wrapper item-select">
+					 <select class="input-span" ng-model="observdata.oktasHighCloud"  >
+										<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+					</select>
+				</label>
+
+				   </div>
+
+
+			   </div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Height high cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+			 <input type="number" placeholder="Enter medium cloud height" ng-model="observdata.heightHighCloud" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">CLCode high cloud</span>
+					</label>
+					<div class="item item-input-inset">
+
+
+					<label class = "item item-input-wrapper item-select">
+							<select class="input-span" ng-model="observdata.CLCODEOfHighClouds" >
+											 <option  value="As"> As</option>
+											 <option  value="Ac">Ac </option>
+											 <option  value="Ns"> Ns</option>
+							 </select>
+
+
+
+						</label>
+
+				   </div>
+
+			   </div>
+			</div>
+
+
+
+			<div class="row button-padding">
+				<div class="col text-left">
+				<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform1')">back</button>
+				</div>
+				<div class="col text-right">
+				<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform3')">next</button>
+				</div>
+			</div>
+</div>
+
+<div  ng-show="observationformpart3">
+		<div class="row">
+			<div class="col">
+				<label class="item item-input-wrapper row-size center_cloud_title">
+					<span class="label-span ">CLOUD 2</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">Type of low cloud</span>
+				</label>
+
+			<div class="item item-input-inset">
+				<label class = "item item-input-wrapper item-select">
+			<select ng-model="observdata.typeLowCloud2"  class="input-span">
+									 <option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+			</select>
+		</select>
+			 </div>
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+				<span class="label-span">OKTAS low cloud</span>
+				</label>
+				<div class="item item-input-inset">
+					<label class = "item item-input-wrapper item-select">
+				<select class="input-span" ng-model="observdata.oktasLowClouds2" >
+										<option ng-repeat="x in cOptions0" value="{{x.t}}">{{x.t}}</option>
+					 </select>
+				 </select>
+				 </div>
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Height of low cloud</span>
+			</label>
+			<div class="item item-input-inset">
+		<label class="item item-input-wrapper row-size">
+			 <input type="number" placeholder="enter low cloud height" ng-model="observdata.lowCloudHeight2" >
+		 </label>
+			</div>
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="label-span">CLCODE low clouds</span>
+			</label>
+				<div class="item item-input-inset">
+
+					<label class = "item item-input-wrapper item-select">
+						 <select class="input-span" ng-model="observdata.CLCode2"  >
+									<option  value="Sc">Sc</option>
+									<option  value="St">St</option>
+									<option  value="Cu">Cu</option>
+									<option  value="Cb">Cb</option>
+				 </select>
+
+					</label>
+
+				 </div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">Type medium cloud</span>
+				</label>
+
+				<div class="item item-input-inset">
+					<label class = "item item-input-wrapper item-select">
+				 <select class="input-span" placeholder="enter medium cloud type"  ng-model="observdata.mediumCloudType2"   >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+				 </div>
+
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">OKTAS medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				<label class = "item item-input-wrapper item-select">
+				 <select class="input-span" ng-model="observdata.OltasMediumCloud2"  >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+
+				 </div>
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Height medium cloud</span>
+			</label>
+			<div class="item item-input-inset">
+			 <label class="item item-input-wrapper row-size">
+		 <input type="number" placeholder="Enter medium cloud height" ng-model="observdata.mediumCloudHeight2" >
+				</label>
+			</div>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">CLCode medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+
+
+				<label class = "item item-input-wrapper item-select">
+						<select class="input-span" ng-model="meta.CLCODEOfMediumClouds2" >
+										 <option  value="As"> As</option>
+										 <option  value="Ac">Ac </option>
+										 <option  value="Ns"> Ns</option>
+						 </select>
+
+
+
+					</label>
+
+				 </div>
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">Type high cloud</span>
+				</label>
+
+				<div class="item item-input-inset">
+					<label class = "item item-input-wrapper item-select">
+				 <select class="input-span"  ng-model="observdata.typeHighCloud2"   >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+				 </div>
+
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">OKTAS high cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				<label class = "item item-input-wrapper item-select">
+				 <select class="input-span" ng-model="observdata.oktasHighCloud2"  >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+
+				 </div>
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Height high cloud</span>
+			</label>
+			<div class="item item-input-inset">
+			 <label class="item item-input-wrapper row-size">
+		 <input type="number" placeholder="Enter medium cloud height" ng-model="observdata.heightHighCloud2" >
+				</label>
+			</div>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">CLCode high cloud</span>
+				</label>
+				<div class="item item-input-inset">
+
+
+				<label class = "item item-input-wrapper item-select">
+						<select class="input-span" ng-model="observdata.CLCODEOfHighClouds2" >
+										 <option  value="As"> As</option>
+										 <option  value="Ac">Ac </option>
+										 <option  value="Ns"> Ns</option>
+						 </select>
+
+
+
+					</label>
+
+				 </div>
+
+			 </div>
+		</div>
+
+
+
+		<div class="row button-padding">
+			<div class="col text-left">
+			<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform2')">back</button>
+			</div>
+			<div class="col text-right">
+			<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform4')">next</button>
+			</div>
+		</div>
+</div>
+
+
+<div  ng-show="observationformpart4">
+		<div class="row">
+			<div class="col">
+				<label class="item item-input-wrapper row-size center_cloud_title">
+					<span class="label-span ">CLOUD 3</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">Type of low cloud</span>
+				</label>
+
+			<div class="item item-input-inset">
+				<label class = "item item-input-wrapper item-select">
+			<select ng-model="observdata.typeLowCloud3"  class="input-span">
+									 <option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+			</select>
+		</select>
+			 </div>
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+				<span class="label-span">OKTAS low cloud</span>
+				</label>
+				<div class="item item-input-inset">
+					<label class = "item item-input-wrapper item-select">
+				<select class="input-span" ng-model="observdata.oktasLowClouds3" >
+										<option ng-repeat="x in cOptions0" value="{{x.t}}">{{x.t}}</option>
+					 </select>
+				 </select>
+				 </div>
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Height of low cloud</span>
+			</label>
+			<div class="item item-input-inset">
+		<label class="item item-input-wrapper row-size">
+			 <input type="number" placeholder="enter low cloud height" ng-model="observdata.lowCloudHeight3" >
+		 </label>
+			</div>
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="label-span">CLCODE low clouds</span>
+			</label>
+				<div class="item item-input-inset">
+
+					<label class = "item item-input-wrapper item-select">
+						 <select class="input-span" ng-model="observdata.CLCode3"  >
+									<option  value="Sc">Sc</option>
+									<option  value="St">St</option>
+									<option  value="Cu">Cu</option>
+									<option  value="Cb">Cb</option>
+				 </select>
+
+					</label>
+
+				 </div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">Type medium cloud</span>
+				</label>
+
+				<div class="item item-input-inset">
+					<label class = "item item-input-wrapper item-select">
+				 <select class="input-span" placeholder="enter medium cloud type"  ng-model="observdata.mediumCloudType3"   >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+				 </div>
+
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">OKTAS medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				<label class = "item item-input-wrapper item-select">
+				 <select class="input-span" ng-model="observdata.OltasMediumCloud3"  >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+
+				 </div>
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Height medium cloud</span>
+			</label>
+			<div class="item item-input-inset">
+			 <label class="item item-input-wrapper row-size">
+		 <input type="number" placeholder="Enter medium cloud height" ng-model="observdata.mediumCloudHeight3" >
+				</label>
+			</div>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">CLCode medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+
+
+				<label class = "item item-input-wrapper item-select">
+						<select class="input-span" ng-model="meta.CLCODEOfMediumClouds3" >
+										 <option  value="As"> As</option>
+										 <option  value="Ac">Ac </option>
+										 <option  value="Ns"> Ns</option>
+						 </select>
+
+
+
+					</label>
+
+				 </div>
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">Type high cloud</span>
+				</label>
+
+				<div class="item item-input-inset">
+					<label class = "item item-input-wrapper item-select">
+				 <select class="input-span"  ng-model="observdata.typeHighCloud3"   >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+				 </div>
+
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="label-span">OKTAS high cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				<label class = "item item-input-wrapper item-select">
+				 <select class="input-span" ng-model="observdata.oktasHighCloud3"  >
+									<option ng-repeat="x in cOptions" value="{{x.t}}">{{x.t}}</option>
+				</select>
+			</label>
+
+				 </div>
+
+
+			 </div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Height high cloud</span>
+			</label>
+			<div class="item item-input-inset">
+			 <label class="item item-input-wrapper row-size">
+		 <input type="number" placeholder="Enter medium cloud height" ng-model="observdata.heightHighCloud3" >
+				</label>
+			</div>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">CLCode high cloud</span>
+				</label>
+				<div class="item item-input-inset">
+
+
+				<label class = "item item-input-wrapper item-select">
+						<select class="input-span" ng-model="observdata.CLCODEOfHighClouds3" >
+										 <option  value="As"> As</option>
+										 <option  value="Ac">Ac </option>
+										 <option  value="Ns"> Ns</option>
+						 </select>
+
+
+
+					</label>
+
+				 </div>
+
+			 </div>
+		</div>
+
+
+
+		<div class="row button-padding">
+			<div class="col text-left">
+			<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform3')">back</button>
+			</div>
+			<div class="col text-right">
+			<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform5')">next</button>
+			</div>
+		</div>
+</div>
+
+<div ng-show="observationformpart5">
+
+
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label ">
+      <span class="input-label ">cloud searchlight Alidade Reading</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="cloud search Light" ng-model="observdata.cloudsechlghtAlidade"  >
+      </label>
+    </div>
+   </div>
+</div>
+
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Rainfall mm</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="dry bulb" ng-model="observdata.rainfall"  >
+      </label>
+
+   </div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Dry bulb</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="dry bulb" ng-model="observdata.dryBulb"  >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Wet Bulb</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="wet bulb" ng-model="observdata.wetBulb" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row text-center" ng-show="observwetBulb">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in wet bulb</label>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Max Read</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter max read" ng-model="observdata.maxRead" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Max Reset</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter max reset" ng-model="observdata.maxReset" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Min Read</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter min read" ng-model="observdata.MinRead" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Min Reset</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter min reset" ng-model="observdata.minReset" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Piche Read</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter piche Read" ng-model="observdata.picheRead" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Piche Reset</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter piche Reset" ng-model="observdata.picheReset" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">time Marks Thermo</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter time Marks Thermo " ng-model="observdata.timeMarksThermo" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">time Marks Hygro</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter time Marks Hygro " ng-model="observdata.timeMarksHygro" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">time Marks RainRec</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter time Marks RainRec " ng-model="observdata.timeMarksRainRec" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">preset Weather</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter preset Weather " ng-model="observdata.presetWeather" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">visibility</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter visibility " ng-model="observdata.visibility" >
+      </label>
+
+   </div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">wind Speed</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter windSpeed " ng-model="observdata.windSpeed" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+			<span class="label-span">Gusting</span>
+		<label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="enter gusting " ng-model="observdata.gusting" >
+			</label>
+
+	 </div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<label class="item item-input item-stacked-label">
+			<span class="label-span">wind run</span>
+		</label>
+	<div class="item item-input-inset">
+		<label class="item item-input-wrapper row-size">
+	 <input type="number" placeholder="wind run" ng-model="observdata.windrun" >
+		</label>
+
+	 </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<label class="item item-input item-stacked-label">
+			<span class="input-label">Duration period of sunshine</span>
+		</label>
+		<div class="item item-input-inset">
+		 <label class="item item-input-wrapper row-size">
+
+		 <input type="number" placeholder="enter duration period" ng-model="observdata.sunshineduration" >
+			</label>
+		</div>
+		 </div>
+</div>
+<div class="row button-padding">
+	<div class="col text-left">
+	<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform4')">back</button>
+	</div>
+	<div class="col text-right">
+	<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform6')">next</button>
+	</div>
+</div>
+
+
+
+</div>
+
+<div ng-show="observationformpart6">
+
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Attd.Thermo.(c)</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="Attd.thermo reading" ng-model="observdata.attdThermoReading" >
+      </label>
+
+		</div>
+	</div>
+	</div>
+
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Pr.AsRead (c)</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="Pr.AsRead reading" ng-model="observdata.prAsReadReading" >
+      </label>
+ </div>
+	</div>
+</div>
+<div class="row text-center" ng-show="observprAsReadReading">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in prsasreading</label>
+	</div>
+</div>
+	<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Correction</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="correction"  ng-model="observdata.correction" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row text-center" ng-show="observCorrection">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in correction</label>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">CLP (mb)</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="ClP mb reading"  ng-model="observdata.cldMbReading"  >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row text-center" ng-show="observCLP">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in CLP</label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">M.S.L.Pr(mb) or 850 mb.Ht.(gpm)</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="value in mb or gpm"  ng-model="observdata.MSLPr">
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row text-center" ng-show="observmslpr">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in m s l p r</label>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">Time marks BAROGRAPH</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="Barograph time marks"  ng-model="observdata.barographTimeMarks" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row text-center" ng-show="observTimeMarksBaroGraph">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in Time marks Barogragh</label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">Time marks ANEMOGRAPH</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="number" placeholder="Anemograph time marks" ng-model="observdata.anemographTimeMarks" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row text-center" ng-show="observTimeMarksAnemoGrapgh">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in Time marks anemograph</label>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">other T/marks</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="other T/marks" ng-model="observdata.otherTMarks">
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row text-center" ng-show="observOtherTMarks">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in Other T marks</label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">Remarks or any other observation</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="enter remarks or other observations" ng-model="observdata.RemarksotherObservation" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row text-center" ng-show="observRemarks">
+	<div class="col " >
+		<label class="item item-input-wrapper row-size item-color">Fill in remarks please</label>
+	</div>
+</div>
+
+<div class="row button-padding">
+	<div class="col text-left">
+	<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform5')">back</button>
+	</div>
+	<div class="col text-right">
+	<button class="button button-calm button-style" ng-click="submitobservationdata()">submit</button>
+	</div>
+</div>
+</div>
+</ion-content>
+</ion-view>

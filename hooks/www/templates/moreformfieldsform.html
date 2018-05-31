@@ -1,0 +1,419 @@
+<ion-view title="more form fields form" ng-init="hideotherMoreFormParts()">
+<ion-content>
+<div ng-show="moreformPart1">
+
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">select date</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="date" ng-model="moreform.date" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="moredate">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in date please</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">Station name</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="enter station name" ng-model="moreform.name"  disabled >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">Station number</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="enter station number" ng-model="moreform.smnumber" disabled>
+				 </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">Time (Normal time format) </span>
+					</label>
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper">
+							<input type="time" name="time"  ng-blur="validateTimeDependants()" ng-model="moreform.time" class="input-span"  />
+							<input style="margin-left:10px; background-color: white" type="text"  ng-blur="validateTimeDependants()" ng-model="moreform.timezulu" class="input-span" placeholder="zulu time" disabled >
+
+							</label>
+				   </div>
+					 </div>
+			</div>
+
+			<div class="row text-center" ng-show="moretime">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in time please</label>
+					</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">Unit of wind speed</span>
+					</label>
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper item-select">
+							<select  class="input-span" ng-model="moreform.windspeed">
+											 <option  value="1">1</option> <option  value="2">2</option> <option  value="3">3</option>
+											 <option  value="4">4</option> <option  value="5">5</option> <option  value="5">5</option>
+						 </select>
+
+						</label>
+				   </div>
+					 </div>
+			</div>
+			<div class="row text-center" ng-show="MoreUnitWind">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in wind speed unit</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">IndOrOmissionOfPrecipitation</span>
+					</label>
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper item-select">
+						 <select class="input-span" ng-model="moreform.IndOrOmissionOfPrecipitation" >
+										<option  value="1">1</option> <option  value="2">2</option> <option  value="3">3</option>
+					 </select>
+						</label>
+
+				   </div>
+					 </div>
+			</div>
+			<div class="row text-center" ng-show="MoreIndOmission">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in indomission</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">Type of station/present</span>
+					</label>
+					<div class="item item-input-inset">
+
+						<label class = "item item-input-wrapper item-select">
+
+
+					 <select class="input-span" ng-model="moreform.stationtype" >
+										<option  value="1">1</option> <option  value="2">2</option> <option  value="3">3</option>
+					</select>
+
+						</label>
+
+					 </div>
+					 </div>
+			</div>
+			<div class="row text-center" ng-show="MooreTypeStation">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in station type</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">Height of lowest cloud</span>
+					</label>
+					<div class="item item-input-inset">
+						<label class = "item item-input-wrapper item-select">
+					<select class="input-span" ng-model="moreform.lowcloudheight" >
+									 <option  value="1">1</option> <option  value="2">2</option> <option  value="3">3</option>
+									 <option  value="4">4</option> <option  value="5">5</option> <option  value="6">6</option>
+									 <option  value="7">7</option> <option  value="8">8</option> <option  value="9">9</option>
+									 <option  value="10">10</option>
+				 </select>
+						</label>
+
+					 </div>
+					 </div>
+			</div>
+			<div class="row text-center" ng-show="MoreLowCldHeight">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in height of low cloud</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Standard isobaric surface</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="enter standard isobaric surface" ng-model="moreform.stdiosbaricsurface" >
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreStdIso">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in standard isobaric ...</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Geopotential of standard isobaric <br/> surface</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="enter geopotential" ng-model="moreform.geopotential">
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreGeoSTDiso">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in geopotential standard isobaric ...</label>
+					</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Duration period of preciptation </span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="enter preciptation duration" ng-model="moreform.preciptationperiod">
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreDurPrecp">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in duration of precipitation...</label>
+					</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col text-center">
+				<button class="button button-calm button-style" ng-click="customshowHideOfMorformParts('Moreform2')">Next</button>
+				</div>
+			</div>
+</div>
+
+
+<div ng-show="moreformPart2">
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">Past Weather</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="enter past weather" ng-model="moreform.pastweather" >
+				  </label>
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="MorePastWearhe">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in past weather...</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Grass Minimum Temperature</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="grass min temperature" ng-model="moreform.grassmintemp">
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreGrassMinTemp">
+
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in grass min .....</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Type of station/present and <br/> past weather</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="station type/present" ng-model="moreform.stationtypepresent">
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreTypeSttn">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in type of station .....</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Character and intensity of precipitation</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="enter preciptation and character intensity" ng-model="moreform.characterintensity" >
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreCharInt">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in character and .....</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Begin or End of precipitation</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="enter begin or preciptation end" ng-model="moreform.beginpreciptation" >
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreBegnPrecipt">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in begin of precip .....</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">indicator of type of instrumentation</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="enter indicator" ng-model="moreform.indicator" >
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreIndcType">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in indicator type of .....</label>
+					</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Sign of pressure change</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="number" placeholder="enter sign of pressure change" ng-model="moreform.pressuresign" >
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MorePressureSignchange">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in sign of pressure change .....</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="input-label">Supplimentary information</span>
+					</label>
+					<div class="item item-input-inset">
+					 <label class="item item-input-wrapper row-size">
+
+					 <input type="text" placeholder="supplimentary info" ng-model="moreform.suppinfo" >
+					  </label>
+					</div>
+				   </div>
+			</div>
+			<div class="row text-center" ng-show="MoreSuppInfo">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in supplimentary infor.....</label>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">Vapour pressure</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+				 <input type="number" placeholder="vapour pressure" ng-model="moreform.vapourpressure">
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="MoreVapourPressure">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in vapour pressure.....</label>
+					</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+					  <span class="label-span">TH GRAPH</span>
+					</label>
+				<div class="item item-input-inset">
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="number" placeholder="th graph" ng-model="moreform.thgraph">
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row text-center" ng-show="MoreTHGraph">
+					<div class="col " >
+						<label class="item item-input-wrapper row-size item-color">Fill in Th graph.....</label>
+					</div>
+			</div>
+			<div class="row button-padding">
+				<div class="col text-left">
+				<button class="button button-assertive button-style" ng-click="customshowHideOfMorformParts('moreform1')">back</button>
+				</div>
+				<div class="col text-right">
+				<button class="button button-calm button-style" ng-click="submitmoreformdata()">submit</button>
+				</div>
+			</div>
+</div>
+
+
+</ion-content>
+
+</ion-view>

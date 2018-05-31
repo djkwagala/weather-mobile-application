@@ -1,0 +1,595 @@
+<ion-view  view-title="observationform" ng-init="hideotherObservationParts()">
+
+<ion-content>
+<div ng-show="observationformPart1">
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">select date</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="date" ng-model="observdata.date" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">station name</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter station name" ng-model="observdata.StationName" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset"   >
+				  <span class="label-span">station number</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter station number" ng-model="observdata.StationNumber" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">Time</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="Time" placeholder="select time" ng-model="observdata.time" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Total amount of clouds</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="clouds amount"  ng-model="observdata.amountClounds" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Total low clound</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+				 <input type="text" placeholder="total low cloud"  ng-model="observdata.totalLowClounds" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">OKTAS low cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+					 //observdata.date observdata.StationName observdata.StationNumber observdata.time observdata.amountClounds	observdata.totalLowClounds"
+
+				 <input type="text" placeholder="enter oktas low cloud" ng-model="observdata.oktasLowClouds"   >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Height of low cloud</span>
+				</label>
+				<div class="item item-input-inset">
+
+				 <input type="text" placeholder="enter low cloud height" ng-model="observdata.lowCloudHeight" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">CLCODE</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="number" placeholder="enter CLCODE" ng-model="observdata.CLCode" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Type medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="enter medium cloud type" ng-model="observdata.mediumCloudType"  >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">OLTAS medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter OLTAS medium cloud" ng-model="observdata.OltasMediumCloud" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">Height medium cloud</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+//observdata.oktasLowClouds observdata.lowCloudHeight	 observdata.CLCode 	observdata.mediumCloudType	observdata.OltasMediumCloud	 mediumCloudHeigh
+				 <input type="text" placeholder="Enter medium cloud height" ng-model="observdata.mediumCloudHeight" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+
+				<div class="col text-center">
+				<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform2')">Next</button>
+				</div>
+			</div>
+</div>
+<div ng-show="observationformpart2">
+
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">MAX reset</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" ng-model="observdata.maxReset" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">MIN read</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter MIN read"  ng-model="observdata.MinRead" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">MIN reset</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter MIN reset" ng-model="observdata.minReset"  >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">PICHE READ</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="Enter PICHE read" ng-model="observdata.picheRead"   >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">PICHE RESET</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="piche reset" ng-model="observdata.picheReset"  >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">TIME MARKS THERMO</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+	//observdata.maxReset 	observdata.MinRead		observdata.minReset  observdata.picheRead observdata.picheReset	 observdata.timeMarksThermo
+				 <input type="text" placeholder="time marks thermo" ng-model="observdata.timeMarksThermo" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">TIME MARKS HYGRO</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="enter time marks hygro" ng-model="observdata.timeMarksHygro" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<label class="item item-input item-stacked-label">
+				  <span class="input-label">TIME MARKS RAIN REC</span>
+				</label>
+				<div class="item item-input-inset">
+				 <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="time marks rain rec" ng-model="observdata.timeMarksRainRec" >
+				  </label>
+				</div>
+			   </div>
+			</div>
+
+
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">PRESENT WEATHER</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="present weather" ng-model="observdata.presetWeather" >
+				  </label>
+			
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">VISIBILITY</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="visibility" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">WIND DIRECTION</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="enter wind direction" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">WIND SPEED</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="wind speed" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+				<div class="item item-input-inset">
+				  <span class="label-span">GUSTING</span>
+				  <label class="item item-input-wrapper row-size">
+
+				 <input type="text" placeholder="gusting" >
+				  </label>
+
+			   </div>
+				</div>
+			</div>
+
+			<div class="row button-padding">
+				<div class="col text-left">
+				<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform1')">back</button>
+				</div>
+				<div class="col text-right">
+				<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform3')">next</button>
+				</div>
+			</div>
+
+
+</div>
+
+
+<div ng-show="observationformpart3">
+	<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">CLODE MEDIUM CLOUD</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="clode medium cloud" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">TYPE HIGH CLOUD</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="type high cloud" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">OKTAS HIGH CLOUD</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="oktas high cloud" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">HEIGHT HIGH CLOUD</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="Height high cloud" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">CLCODE MEDIUM CLOUD</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="date" placeholder="clcode medium cloud" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label ">
+      <span class="input-label ">cloud searchlight Alidade Reading <br/> Rainfall (mm)</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="reading in mm" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Dry bulb</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="dry bulb" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Wet Bulb</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="wet bulb" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Max Read</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="enter max read" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row button-padding">
+	<div class="col text-left">
+	<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform2')">back</button>
+	</div>
+	<div class="col text-right">
+	<button class="button button-calm button-style" ng-click="customshowHideOfObsform('Obsform4')">next</button>
+	</div>
+</div>
+
+
+
+</div>
+
+<div ng-show="observationformpart4">
+
+	<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Attd.Thermo.(c)</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="Attd.thermo reading" >
+      </label>
+
+		</div>
+	</div>
+	</div>
+
+	<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Pr.AsRead (c)</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="Pr.AsRead reading" >
+      </label>
+
+   </div>
+	</div>
+	</div>
+	<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">Correction</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="correction" >
+      </label>
+
+   </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+	<div class="item item-input-inset">
+      <span class="label-span">CLD (mb)</span>
+	  <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="Cld mb reading" >
+      </label>
+
+   </div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">M.S.L.Pr(mb) or 850 mb.Ht.(gpm)</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="value in mb or gpm" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">Time marks BAROGRAPH</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="Barograph time marks" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">Time marks ANEMOGRAPH</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="Anemograph time marks" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">other T/marks</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="other T/marks" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row">
+	<div class="col">
+	<label class="item item-input item-stacked-label">
+      <span class="input-label">Remarks or any other observation</span>
+	</label>
+	<div class="item item-input-inset">
+	 <label class="item item-input-wrapper row-size">
+
+	 <input type="text" placeholder="enter other observations" >
+      </label>
+    </div>
+   </div>
+</div>
+<div class="row button-padding">
+	<div class="col text-left">
+	<button class="button button-assertive button-style" ng-click="customshowHideOfObsform('Obsform3')">back</button>
+	</div>
+	<div class="col text-right">
+	<button class="button button-calm button-style" ng-click="submitobservationdata()">submit</button>
+	</div>
+</div>
+</div>
+</ion-content>
+</ion-view>
